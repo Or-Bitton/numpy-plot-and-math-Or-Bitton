@@ -15,10 +15,12 @@ def normalized_array(data):
     """
     # המרת הקלט ל-numpy array לצורך חישובים וקטוריים
     data = np.array(data)
-    
-    # --- כיתבו את הקוד שלכם כאן ---
-    pass
-    # חשוב לזכור להחליף את pass ב- return
+    if np.all(data == data[0]):
+        return np.zeros(data.shape)
+    else:
+        new_array = (data - np.min(data)) / (np.max(data) - np.min(data))
+
+    return new_array
 
 if __name__ == "__main__":
     # כאן הסטודנטים יכולים להריץ בדיקה עצמית מהירה
